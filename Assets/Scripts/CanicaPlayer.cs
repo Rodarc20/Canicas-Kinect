@@ -7,7 +7,6 @@ public class CanicaPlayer : MonoBehaviour {
     //aunq ue deberia llamar a issleeping, por que el problemas es que algun choque que no controlo, puede mover la pelota, pero no afectar a esta variable, lo cual traeria errores
     public Rigidbody m_Rigidbody;
     public Transform m_Player;//este es la posicion del Jugador
-    public PlayerThrow m_PlayerThrow;
     public float m_Desaceleracion = 0f;
     public void Awake(){
         m_Rigidbody = GetComponent<Rigidbody>();

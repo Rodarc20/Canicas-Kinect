@@ -11,9 +11,9 @@ public class CameraControl : MonoBehaviour {//esta cosa deberia esar en dentro d
         m_InicialRotation = transform.rotation;
         m_InicialPosition = transform.position;
     }
-    public void Update(){//era Last
+    public void Update(){//era LateUpdate
         transform.position = m_Player.transform.position;//pero esto deberia ser relativo
-        Quaternion rotate = m_Player.transform.rotation * Quaternion.AngleAxis(45f, Vector3.right);//para corregir la rotacion, por haber tomado el spawnpint como inical
+        Quaternion rotate = m_Player.transform.rotation;//para corregir la rotacion, por haber tomado el spawnpint como inical
         transform.rotation = rotate;//pero esto deberia ser relativo
     }
     public void SetStartPosition(){

@@ -4,8 +4,9 @@ public class GroundControler : MonoBehaviour {
     public void OnTriggerEnter(Collider other){//cambiar esto a Stay hace que sea muy pesado
         GameObject canica = other.gameObject;
         if(canica.layer == LayerMask.NameToLayer("Jugador")){
-            CanicaPlayer canicaPlayer = canica.GetComponent<CanicaPlayer>();
-            if(canicaPlayer.m_Fired){
+            //CanicaPlayer canicaPlayer = canica.GetComponent<CanicaPlayer>();
+            CanicaMove canicaPlayer = canica.GetComponent<CanicaMove>();//para canica kinect
+            if(canicaPlayer.lanzado){
                 //Rigidbody canicaRigidbody = canica.GetComponent<Rigidbody>();
                 canicaPlayer.m_Desaceleracion = 1f;
             }
@@ -21,8 +22,8 @@ public class GroundControler : MonoBehaviour {
     public void OnTriggerExit(Collider other){//para devolver las desaceleraciones a su lugar
         GameObject canica = other.gameObject;
         if(canica.layer == LayerMask.NameToLayer("Jugador")){
-            CanicaPlayer canicaPlayer = canica.GetComponent<CanicaPlayer>();
-            if(canicaPlayer.m_Fired){
+            CanicaMove canicaPlayer = canica.GetComponent<CanicaMove>();//para canica kinect
+            if(canicaPlayer.lanzado){
                 //Rigidbody canicaRigidbody = canica.GetComponent<Rigidbody>();
                 canicaPlayer.m_Desaceleracion = 0f;
             }
