@@ -1,2 +1,2 @@
-# Canicas
-Proyecto en Unity para el taller de IHC
+# Canicas Kinect
+Proyecto en Unity usando Kinect para el taller de HIC
