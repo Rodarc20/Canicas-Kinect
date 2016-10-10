@@ -67,16 +67,31 @@ public class GameManager : MonoBehaviour {
         }        
     }
 
-    private Vector3 posicionValida(){//obetener una posicion valida para las canicas objetivo
+    /*private Vector3 posicionValida(){//obetener una posicion valida para las canicas objetivo
         Transform posicion = Instantiate(m_SpawnPosition, new Vector3 (0f, 0.5f, 0f), Quaternion.identity) as Transform;//donde probare las posiciion generada, este es una clon del objeto trasnsform
         //no es aconsejable usar el transform de este gamobject, falla
         posicion.position = new Vector3 (0f, 0.5f, Random.Range(0f, radioJuego - 1f));//podira mezclasr la anterior
+        posicion.RotateAround(transform.position, Vector3.up, Random.Range(0f, 360f));//obtener defrente la rotacion
+        while(!EsValido(posicion)){
+            posicion.position = new Vector3 (0f, 0.5f, Random.Range(0f, 8f));//podira mezclasr la anterior
+            posicion.RotateAround(transform.position, Vector3.up, Random.Range(0f, 360f));//obtener defrente la rotacion
+        }
+        return posicion.position;
+    }*/
+
+    private Vector3 posicionValida(){
+        Vector3 res;
+        Transform posicion = Instantiate(m_SpawnPosition, new Vector3 (0f, 0.5f, 0f), Quaternion.identity) as Transform;//donde probare las posiciion generada, este es una clon del objeto trasnsform
+        //no es aconsejable usar el transform de este gamebject GameManager, falla
+        posicion.position = new Vector3 (0f, 0.5f, Random.Range(0f, 8f));//podira mezclasr la anterior
         posicion.RotateAround(transform.position, Vector3.up, Random.Range(0f, 360f));//obtener defrente la rotacion*/
         while(!EsValido(posicion)){
             posicion.position = new Vector3 (0f, 0.5f, Random.Range(0f, 8f));//podira mezclasr la anterior
             posicion.RotateAround(transform.position, Vector3.up, Random.Range(0f, 360f));//obtener defrente la rotacion*/
         }
-        return posicion.position;
+        res = posicion.position;
+        Destroy(posicion.gameObject);
+        return res;
     }
 
     private bool EsValido(Transform posicion){
